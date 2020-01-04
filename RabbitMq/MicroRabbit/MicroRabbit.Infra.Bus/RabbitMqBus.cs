@@ -26,7 +26,6 @@ namespace MicroRabbit.Infra.Bus
             _eventTypes = new List<Type>();
         }
 
-
         public Task SendCommand<T>(T command) where T : Command
         {
             return _mediator.Send(command);
@@ -114,10 +113,8 @@ namespace MicroRabbit.Infra.Bus
             }
             catch (Exception)
             {
-
                 throw;
             }
-
         }
 
         private async Task ProcessEvent(string eventName, string message)
@@ -137,7 +134,6 @@ namespace MicroRabbit.Infra.Bus
                     var concreteType = typeof(IEventHandler<>).MakeGenericType(eventType);
 
                     await (Task)concreteType.GetMethod("Handle").Invoke(handler, new object[] { @event });
-
                 }
             }
         }
