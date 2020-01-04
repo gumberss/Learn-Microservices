@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MicroRabbit.Banking.Data.Context
 {
-    public class BakingDbContext : DbContext
+    public class BankingDbContext : DbContext
     {
-        public BakingDbContext(DbContextOptions options) : base(options)
+        public BankingDbContext(DbContextOptions options) : base(options)
         {
         }
 
