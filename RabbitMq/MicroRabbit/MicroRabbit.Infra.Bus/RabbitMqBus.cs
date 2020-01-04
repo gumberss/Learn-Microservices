@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,7 +54,30 @@ namespace MicroRabbit.Infra.Bus
             where TEvent : Event
             where THandler : IEventHandler<TEvent>
         {
-            throw new NotImplementedException();
+            var eventName = typeof(TEvent).Name;
+            var handlerType = typeof(THandler);
+
+            if (!_eventTypes.Contains(typeof(TEvent)))
+            {
+                _eventTypes.Add(typeof(TEvent));
+            }
+
+            if (!_handlers.ContainsKey(eventName))
+            {
+                _handlers.Add(eventName, new List<Type>());
+            }
+
+            if (_handlers[eventName].Any(s => s.GetType() == handlerType))
+            {
+                throw new ArgumentException(
+                    $"Handler Type {handlerType.Name} already is registred for '{eventName}'"
+                    , nameof(handlerType)
+                    );
+            }
+
+            _handlers[eventName].Add(handlerType);
+
+            
         }
     }
 }
