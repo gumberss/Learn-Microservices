@@ -125,7 +125,18 @@ namespace MicroRabbit.Infra.Bus
 
                 foreach (var subscription in subscriptions)
                 {
-                    var handler = Activator.CreateInstance(subscription);
+                    var constructors = subscription.GetConstructors();
+
+                    var eventBusContructor = constructors
+                        .Where(x => x.GetParameters().Length == 1)
+                        .FirstOrDefault(x => x.GetParameters()[0].ParameterType == typeof(IEventBus));
+
+                    Object handler;
+
+                    if (eventBusContructor != null)
+                        handler = Activator.CreateInstance(subscription, new[] { this });
+                    else
+                        handler = Activator.CreateInstance(subscription);
 
                     if (handler == null) continue;
 
