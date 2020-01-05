@@ -7,7 +7,7 @@ namespace MicroRabbit.Banking.Domain.Events
         public int From { get; private set; }
 
         public int To { get; private set; }
-        public decimal Amount { get; private set }
+        public decimal Amount { get; private set; }
 
         public TransferCreatedEvent(int from, int to, decimal amount)
         {
