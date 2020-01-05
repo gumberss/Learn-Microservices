@@ -9,6 +9,11 @@ namespace MicroRabbit.Transfer.Data.Repository
     {
         private TransferDbContext _ctx;
 
+        public TransferRepository(TransferDbContext ctx)
+        {
+            _ctx = ctx;
+        }
+
         public IEnumerable<TransferLog> GetTransferLogs()
         {
             return _ctx.TranferLogs;
