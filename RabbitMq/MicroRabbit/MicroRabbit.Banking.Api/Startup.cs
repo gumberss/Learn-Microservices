@@ -26,14 +26,9 @@ namespace MicroRabbit.Banking.Api
         {
             services.AddControllers();
 
-            RegisterServices(services);
-        }
-
-        private void RegisterServices(IServiceCollection services)
-        {
             services.AddDbContext<BankingDbContext>(options =>
             {
-                options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=BankingDB;Trusted_Connection=True;MultipleActiveResultSets=true"/*Configuration.GetConnectionString("BankingDbConnection")*/);
+                options.UseSqlServer(Configuration.GetConnectionString("BankingDbConnection"));
             });
 
             services.AddSwaggerGen(x =>
@@ -43,6 +38,11 @@ namespace MicroRabbit.Banking.Api
 
             services.AddMediatR(typeof(Startup));
 
+            RegisterServices(services);
+        }
+
+        private void RegisterServices(IServiceCollection services)
+        {
             DependencyContainer.RegisterServices(services);
         }
 
@@ -53,7 +53,6 @@ namespace MicroRabbit.Banking.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
 
             app.UseSwagger();
             app.UseSwaggerUI(x =>
