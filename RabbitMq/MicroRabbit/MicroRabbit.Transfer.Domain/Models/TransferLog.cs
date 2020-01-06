@@ -13,6 +13,6 @@ namespace MicroRabbit.Transfer.Domain.Models
 
         public int toAccount { get; set; }
 
-        public decimal TrsnferAmount { get; set; }
+        public decimal TransferAmount { get; set; }
     }
 }
