@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Net.Http;
 
 namespace MicroRabbit.MVC
 {
@@ -21,7 +22,11 @@ namespace MicroRabbit.MVC
         {
             services.AddControllersWithViews();
 
-            services.AddHttpClient<ITransferService, TransferService>();
+            services.AddHttpClient<ITransferService, TransferService>().ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+            {
+                ClientCertificateOptions = ClientCertificateOption.Manual,
+                ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, cetChain, policyErrors) => true
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
