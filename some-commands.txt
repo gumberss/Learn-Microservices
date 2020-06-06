@@ -1,0 +1,55 @@
+- Quando um microsserviço é criado, deve conseguir pedir para o event bus todos os eventos ja processados para poder se atualizar
+
+Docker
+	- Conseguir criar cópias do seu serviço
+	- Conseguir iniciar e parar cópias do serviço em momentos específicos do dia
+	
+Kubernetes
+	- kubectl -> comando utilizado para interagir como kubernetes
+	- kubectl apply -f file.yaml
+	- kubectl get pods -> verifica os pods criados
+	- kubectl exec it [pod_name] [cmd]
+	- kubectl logs [pod_name]
+	- kubectl delete pod [pod_name]
+	- kubectl apply -f [config file name] -> avisa o kubernetes para rodar a configuração
+	- kubectl describe pod [pod_name] -> apresenta algumas informações sobre o Pod
+	- kubectl exec -it [pod_name] sh -> abrir shell 
+		-  exit -> sair
+	- kubectl get deployments -> list all the deployments
+	- kubectl describe deployment [depl name] -> 
+	- kubectl apply -f [config file name] ->
+	- kubectl delete deployment [depl_name] -> 
+	- kubectl rollout restart deployment [depl_name]
+	- kubectl apply -f . -> aplica todos os arquivos yaml dentro da pasta
+	- kubectl create secret generic [secret-name] --from-literal=[key]=[value]
+	- kubectl describe pod [pod name]
+	- kubectl get namespace
+	- kubectl get services -n [namespace]
+	
+host file: C:\Windows\System32\drivers\etc\host
+
+gcloud
+	- gcloud init
+	- gcloud components install kubectl
+	- gcloud container clusters get-credentials [cluster name]
+	
+npm
+	- npm login
+	- npm publish --access public
+	- npm version patch -> increment patch version (1.0.0 -> 1.0.1)
+	
+npx
+	- create-react-app web --template=typescript
+	
+skaffold
+	skaffold dev
+	
+Kubernetes file	
+	- apiVersion: v1 -> A versão do Kubernetes que contém o objeto customizado que vou criar
+	kind: Pod -> Tipo do objeto que vou criar (Pod no caso)
+	metadata: -> são as configurações do objeto que vou criar
+		name: nome_do_objeto -> nome do objeto que vou criar(No caso, nome do Pod)
+	spec: -> os stributos que quiser adicionar no objeto que será criado
+		containers: -> containers que vão estar dentro do pod
+			- name: nome_do_container -> nome do containter
+			image: minha_imagem:version -> nome da imagem

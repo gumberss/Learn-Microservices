@@ -5,3 +5,4 @@ Debug/
 Release/
 *.suo
 *.user
+**/node_modules
