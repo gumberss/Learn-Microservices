@@ -5,5 +5,14 @@ const stan = nats.connect('ticketing', 'abc', {
 })
 
 stan.on('connect', () => {
-  console.log('Publisher conected to NATS')
+	console.log('Publisher conected to NATS')
+
+	const data = JSON.stringify({
+		id: '321',
+		title: 'connected',
+		price: 20,
+  })
+  stan.publish('ticket:created', data, () => {
+    console.log('Event published')
+  })
 })
