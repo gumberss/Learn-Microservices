@@ -21,11 +21,11 @@ spec:
               '4222',
               '-m',
               '8222',
-              '-hbi',
+              '-hbi', # How offen nats server is going to make a heartbeat to each of its clients 
+              '5s', 
+              '-hbt', # How long each client has to respond
               '5s',
-              '-hbt',
-              '5s',
-              '-hbf',
+              '-hbf', # How many times each client can fail before nats streaming server assume that connection is dead and gone
               '2',
               '-SD',
               -cid,
