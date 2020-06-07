@@ -1,6 +1,5 @@
 import { Stan } from 'node-nats-streaming'
 import { Subjects } from './subjects'
-import { resolve } from 'dns'
 
 interface Event {
 	subject: Subjects
