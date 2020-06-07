@@ -1,7 +1,8 @@
 import { Stan, Message } from "node-nats-streaming"
+import { Subjects } from "./subjects"
 
 export abstract class Listener {
-	abstract subject: string
+	abstract subject: Subjects
 	abstract queueGroupName: string
 
 	protected ackWait = 5 * 1000
