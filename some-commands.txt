@@ -3,7 +3,46 @@
 Docker
 	- Conseguir criar cópias do seu serviço
 	- Conseguir iniciar e parar cópias do serviço em momentos específicos do dia
+	- docker run [image_name] === docker create [image_name] + docker start [image_name] 
+	- docker ps
+	- docker ps --all
+	- docker run [image_name] -a  -> -a = attach
+	- docker system prune -> delete all the resources from docker
+	- docker logs [containerId]
+	- docker stop [container_id] -> give time to your container to finish its process (cleanup, save stuff)
+	- docker kill [container_id] -> shut down right now!
+	- docker exec -it [container_id] [command] -> -it = interact
+		- Can be used with a container that is running other process
+		- exec -> execute an additional command in the conainer
+		- it can be used separated
+			-i -> make possible to you send input data to the container
+			-t -> make possible to you receive some additional data from the container
+	- docker build .
+		- build or update an image  
+	- docker build -t [yourdockerid]/image-name:version .
+		- -t -> create a tag with its name
+	- docker commit -c 'CMD ["startup command"]' [running_container_id]
+		- -c -> allows specify the start command 
+	- docker run -p 8080:8080 [image_id]
+		- -p -> port mapping [local_machine_port]:[container_port]
+		
+Docker file
+	- FROM
+		- Specify the base image
 	
+	- WORKDIR [specified/folder]                                          
+		- change the context of your container to the specified folder
+
+	- COPY [./local/folder] [./container/folder]
+		- copy the specified file to the container and save a new temporary image with the previous image and this or these new files 
+		- this command is relative to the current build context
+		
+	- RUN [the command]
+		- Run a command inside the base image and save all the file system as a temporary image
+	
+	- CMD ["command", "to", "run"]
+		- Get the command and save it as the start container command 
+		
 Kubernetes
 	- kubectl -> comando utilizado para interagir como kubernetes
 	- kubectl apply -f file.yaml
@@ -25,6 +64,9 @@ Kubernetes
 	- kubectl describe pod [pod name]
 	- kubectl get namespace
 	- kubectl get services -n [namespace]
+	- kubectl port-forward [pod name] localPort:podPort -> Mapeia uma porta da maquina com uma porta do pod
+	- kubectl config view
+	- kubectl config use-context [kubernetes-config-name]
 	
 host file: C:\Windows\System32\drivers\etc\host
 
@@ -32,6 +74,10 @@ gcloud
 	- gcloud init
 	- gcloud components install kubectl
 	- gcloud container clusters get-credentials [cluster name]
+	
+Digital Ocean:
+	- doctl auth init
+	- doctl kubernetes cluster kubeconfig save [cluster_name]
 	
 npm
 	- npm login
@@ -53,3 +99,4 @@ Kubernetes file
 		containers: -> containers que vão estar dentro do pod
 			- name: nome_do_container -> nome do containter
 			image: minha_imagem:version -> nome da imagem
+			
