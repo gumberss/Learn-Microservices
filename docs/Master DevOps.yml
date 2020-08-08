@@ -1,0 +1,30 @@
+DevOps:
+    - Automation
+    - Get quick feeadbacks 
+    - bring the operations team close to the development team
+    - infrstructure as code
+    - continuous deployment:
+        - deploy new vesion of softwre on test environments
+    - continuous integration:
+        - run the tests nd code qulity checks
+    - continuous delivery:
+        - is continuous deployment in production
+  
+Docker:
+    - standarized application packaging:
+        - provides the deployments steps equal to each container, independent the diferences inside of it
+        - if a microservice is build in javascript or python, after you generate an image, the nexts steps are the same
+        - avoid error prone manual installations
+        - it doesen't matter whatever is inside a docker image, you can run it in the same way
+    - multi platform support:
+        - you can run docker images in:
+            - local machine
+            - cloud
+            - data center
+            - whatever you want
+    - light-weight and isolation:
+        - light-weight compared to VM's
+    - when one container fails, it doesn't impact to other continers
+    - you can control the memory and cpu of each container
+    
+    
