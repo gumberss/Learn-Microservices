@@ -8,6 +8,10 @@ Docker
 	- docker ps --all
 	- docker run [image_name] -a  -> -a = attach
 	- docker system prune -> delete all the resources from docker
+    - docker system
+	- docker system df -> disk usage
+	- docker system info
+	- docker system events -> se real time events
 	- docker logs [containerId]
 	- docker stop [container_id] -> give time to your container to finish its process (cleanup, save stuff)
 	- docker kill [container_id] -> shut down right now!
@@ -25,6 +29,17 @@ Docker
 		- -c -> allows specify the start command 
 	- docker run -p 8080:8080 [image_id]
 		- -p -> port mapping [local_machine_port]:[container_port]
+	- docker container rm $(docker container ls –aq)
+	- docker stats [--no-stream] ->> show docker stats (memory usage, CPU,...)
+    - docker search [image-name]
+	- docker image history [image:tag]
+	- docker image inspect [image-id]
+	- docker container pause [container-id]
+	- docker container unpause [container-id]
+	- docker run --link [other-container-name] .... -> --link -> make one container see another one (network connection shortcut that works in bridge network)
+	- docker run --env [ENV_NAME=value] .... -> set an environment variable
+	- docker run --network=[network-name] .... -> set the network to the container
+	- docker network create [network-name]
 		
 Docker file
 	- FROM
@@ -47,7 +62,7 @@ Kubernetes
 	- kubectl -> comando utilizado para interagir como kubernetes
 	- kubectl apply -f file.yaml
 	- kubectl get pods -> verifica os pods criados
-	- kubectl exec it [pod_name] [cmd]
+	- kubectl exec -it [pod_name] [cmd]
 	- kubectl logs [pod_name]
 	- kubectl delete pod [pod_name]
 	- kubectl apply -f [config file name] -> avisa o kubernetes para rodar a configuração
@@ -65,6 +80,7 @@ Kubernetes
 	- kubectl get namespace
 	- kubectl get services -n [namespace]
 	- kubectl port-forward [pod name] localPort:podPort -> Mapeia uma porta da maquina com uma porta do pod
+	- kubectl port-forward svc/[service name] 27017:27017 -> Mapeia uma porta da maquina com uma porta do service 
 	- kubectl config view
 	- kubectl config use-context [kubernetes-config-name]
 	
@@ -100,3 +116,11 @@ Kubernetes file
 			- name: nome_do_container -> nome do containter
 			image: minha_imagem:version -> nome da imagem
 			
+
+serverless framework:
+	sls invoke -f [function-name] --logger
+		-f -> define function-name
+	sls invoke local -f [function-name] --logger	
+		- local -> execute local
+	sls deploy
+	
