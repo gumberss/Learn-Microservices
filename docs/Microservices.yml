@@ -38,12 +38,21 @@ Why microservice:
                     - if a new tecnology is delivered to solve a problem we heve, we won't be able to use
                     - reduce agility to:
                         - Dificult to adopt new patterns and practies that benefits our application
-                - new features require changes everywhere:
+                - new features require changes everywhere
+                - Long training requirements
+                - crushed under trafic needs
+                - Failure to adapt to innovations
+                    - Lost good developers, because they don't want to work with old tecnologies
+           
 # how much of this (above) we overcome with msmq and nServiceBus?
 
     Microservices:
         - has a clearly defined boundary with a public interface and the data can be accessed only by that public interface
         - Organize microservices around business capabilities
+        - Each microservice has its own database
+        - Accelerates the velocity of software development by enabling small, autonomous teams to work in parallel
+        - Requires DevOps and small, autonomous teams
+        - Better choice for large and complex applications
         Prós:
             - Resilicencia
             - Each microservice:
@@ -52,7 +61,7 @@ Why microservice:
                 - can be rewritten very often if necessary
             - Tecnology Choice:
                 - Adopt new tecnology that help us face our problems 
-                - Flexibility to find and use the right tool (one microservice can use relation database and other can use deocument database)
+                - Flexibility to find and use the right tool (one microservice can use relation database and other can use document database)
             - Deploy:
                 - Individual deployment (low risk)
                 - minimize downtime
@@ -114,7 +123,7 @@ Why microservice:
             - circular dependencies 
             - chatty communications (frequent comunication between one with other)
                 
-            
+         
             
 
 How to evolving to microservice:

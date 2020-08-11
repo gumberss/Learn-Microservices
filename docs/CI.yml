@@ -1,0 +1,28 @@
+Continuous Integration:
+    - get quick feedback
+        - run unit tests
+        - check code quality
+        - package application well
+        - integration tests
+        
+Continuous Deployment:
+    - code commit
+    - unit tests
+    - integration tests
+        - cocumber
+        - selenium
+        - protractor
+        - Cypress
+    - package
+    - deploy (QA or development environment)
+    - automated tests (smoke tests)
+
+Continuous Delivery:
+    - after run continuous deployment
+    - when all the tests was approved on the QA or development environment:
+        - deploy to client (production)
+
+Tools for it:
+    - jenkins
+    - Azure DevOps
+        
