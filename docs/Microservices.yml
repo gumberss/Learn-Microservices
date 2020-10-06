@@ -7,6 +7,7 @@ Things to think about:
     - Comunication synchronously or asynchronously
     - Authentication to use
     - Template project
+    - context creation should be transient or scoped
 
 Why microservice:
     Monoliths:
