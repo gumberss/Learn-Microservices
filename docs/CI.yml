@@ -15,7 +15,10 @@ Continuous Deployment:
         - Cypress
     - package
     - deploy (QA or development environment)
-    - automated tests (smoke tests)
+    - automated tests
+        - smoke tests
+        - performance tets
+        - load tests
 
 Continuous Delivery:
     - after run continuous deployment
