@@ -18,27 +18,26 @@ Why microservice:
                 - quantity of users
                 - quantity of data
                 - quantity of modules
-                - 
         Cons:
             - for big applications:
                 - Generate too many technical debts
                 - Generate entangled modules (one depends another one)
-                - Dificult to maintain
+                - Difficult to maintain
                 - Deploy:
                     - One single line of code changed, the entire application must be deployed
                     - Risky
                     - Requires downtime
-                - Dificult to scale:
+                - Difficult to scale:
                     - Horizontal scaling often not possible
                     - Vertical scaling is expensive:
                         - Operador database server must have 128Gb of Ram memory ans 16 Xeon processor cores to process in the worst case
                     - Whole application must be scaled:
                         - If one process require memory and we set it, all the application will get a part of it, even it doesen't need it
                 -  Forced to use the same tecnology:
-                    - Dificult to test new tecnologies
+                    - Difficult to test new tecnologies
                     - if a new tecnology is delivered to solve a problem we heve, we won't be able to use
                     - reduce agility to:
-                        - Dificult to adopt new patterns and practies that benefits our application
+                        - Difficult to adopt new patterns and practies that benefits our application
                 - new features require changes everywhere
                 - Long training requirements
                 - crushed under trafic needs
@@ -69,14 +68,12 @@ Why microservice:
                 - frequent updates
                     - we can get a high priority issue, solve and deploy imediately
                     - it can be make a lot of times a day
-                - 
             - Scale:
                 - can scale each microservice individually
                     - Cost-effective
             Agility:
                 - Adapt rabidly to business changes
-                - Easly to reuse microservices in new scenarious
-                    
+                - Easly to reuse microservices in new scenarious       
         Cons:
             - Developer Productivity working on the entire: 
                 - will you download, configure each one and run all the microservices?
@@ -91,7 +88,6 @@ Why microservice:
                 - need to centralized place to chec logs and monitoring of problems
         not allow:
             - share same data store with other microservice
-            - 
         Limitations:
             - Eventual consistency (Temporary inconsistency)
             - Database Joins
